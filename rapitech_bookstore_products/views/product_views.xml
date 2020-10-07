@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!-- Author -->
+
+    <record id="view_book_author_filter" model="ir.ui.view">
+        <field name="name">book_author_filter</field>
+        <field name="model">book.author</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Autores">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+      <record id="book_author_form" model="ir.ui.view">
+        <field name="name">book.author.form</field>
+        <field name="model">book.author</field>
+        <field name="arch" type="xml">
+            <form string="Autor">
+                <group>
+                    <div>
+                        <field name="image_medium" widget="image" class="oe_avatar"/>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="book_author_tree" model="ir.ui.view">
+        <field name="name">book.author.tree</field>
+        <field name="model">book.author</field>
+        <field name="arch" type="xml">
+            <tree string="Autores">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="book_author_kanban" model="ir.ui.view">
+        <field name="name">book.author.kanban</field>
+        <field name="model">book.author</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="name" />
+                <field name="image" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_vignette oe_semantic_html_override">
+                            <a type="open" href="#" class="o_kanban_image oe_kanban_action">
+                                <img alt="Open" t-att-src="kanban_image('book.author', 'image_small', record.id.raw_value)" class="img-fluid" style="width:100px;"/>
+                            </a>
+                            <div class="oe_kanban_details">
+                                <h4 class="oe_partner_heading">
+                                    <a type="open" class="o_kanban_record_title">
+                                        <field name="name"/>
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="book_author_action">
+        <field name="name">Autores</field>
+        <field name="res_model">book.author</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="view_book_author_filter"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Crear el primer autor
+            </p>
+        </field>
+    </record>
+        <menuitem id="book_menu" name="Tablas libros"
+                  parent="stock.menu_stock_config_settings"
+                  sequence="180"/>
+
+        <menuitem id="book_author_menu" name="Autores"
+                  parent="book_menu"
+                  sequence="10" action="book_author_action" 
+                  />
+
+<!-- Book Format -->
+
+    <record id="view_book_format_filter" model="ir.ui.view">
+        <field name="name">book_format_filter</field>
+        <field name="model">book.format</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Formatos">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+      <record id="book_format_form" model="ir.ui.view">
+        <field name="name">book.format.form</field>
+        <field name="model">book.format</field>
+        <field name="arch" type="xml">
+            <form string="Formato">
+                <sheet>
+                     <group>
+                        <field name="name"/>
+                    </group>                        
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="book_format_tree" model="ir.ui.view">
+        <field name="name">book.format.tree</field>
+        <field name="model">book.format</field>
+        <field name="arch" type="xml">
+            <tree string="Formatos">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="book_format_action">
+        <field name="name">Formatos</field>
+        <field name="res_model">book.format</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_book_format_filter"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Crear el primer formato
+            </p>
+        </field>
+    </record>
+
+        <menuitem id="book_format_menu" name="Formatos"
+                  parent="book_menu"
+                  sequence="20" action="book_format_action" 
+                  />
+
+    <!-- Book Publsiher -->
+
+    <record id="view_book_publisher_filter" model="ir.ui.view">
+        <field name="name">book_publisher_filter</field>
+        <field name="model">book.publisher</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Editoriales">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+      <record id="book_publisher_form" model="ir.ui.view">
+        <field name="name">book.publisher.form</field>
+        <field name="model">book.publisher</field>
+        <field name="arch" type="xml">
+            <form string="Editorial">
+                <sheet>
+                     <group>
+                        <field name="name"/>
+                    </group>                        
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="book_publisher_tree" model="ir.ui.view">
+        <field name="name">book.publisher.tree</field>
+        <field name="model">book.publisher</field>
+        <field name="arch" type="xml">
+            <tree string="Editoriales">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="book_publisher_action">
+        <field name="name">Editoriales</field>
+        <field name="res_model">book.publisher</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_book_publisher_filter"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Crear la primer Editorial
+            </p>
+        </field>
+    </record>
+
+        <menuitem id="book_publisher_menu" name="Editoriales"
+                  parent="book_menu"
+                  sequence="30" action="book_publisher_action" 
+                  />
+
+    <!-- Filling Type -->
+
+    <record id="view_filling_type_filter" model="ir.ui.view">
+        <field name="name">filling_type_filter</field>
+        <field name="model">filling.type</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Tipos de estampe">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+      <record id="filling_type_form" model="ir.ui.view">
+        <field name="name">filling.type.form</field>
+        <field name="model">filling.type</field>
+        <field name="arch" type="xml">
+            <form string="Tipo de estampe">
+                <sheet>
+                     <group>
+                        <field name="name"/>
+                    </group>                        
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="filling_type_tree" model="ir.ui.view">
+        <field name="name">filling.type.tree</field>
+        <field name="model">filling.type</field>
+        <field name="arch" type="xml">
+            <tree string="Tipos de estampe">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="filling_type_action">
+        <field name="name">Tipos de estampe</field>
+        <field name="res_model">filling.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_filling_type_filter"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Crear el primer tipo de estampe
+            </p>
+        </field>
+    </record>
+
+        <menuitem id="filling_type_menu" name="Tipos de estampe"
+                  parent="book_menu"
+                  sequence="40" action="filling_type_action" 
+                  />
+
+</odoo>

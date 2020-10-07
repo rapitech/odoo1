@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_book_format,access.book.format,model_book_format,base.group_user,1,1,1,1
+access_book_author,access.book.author,model_book_author,base.group_user,1,1,1,1
+access_book_publisher,access.book.publisher,model_book_publisher,base.group_user,1,1,1,1
+access_filling_type,access.filling.type,model_filling_type,base.group_user,1,1,1,1
