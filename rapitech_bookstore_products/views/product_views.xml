@@ -71,7 +71,6 @@
     <record model="ir.actions.act_window" id="book_author_action">
         <field name="name">Autores</field>
         <field name="res_model">book.author</field>
-        <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form</field>
         <field name="search_view_id" ref="view_book_author_filter"/>
         <field name="help" type="html">
@@ -127,7 +126,6 @@
     <record model="ir.actions.act_window" id="book_format_action">
         <field name="name">Formatos</field>
         <field name="res_model">book.format</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="search_view_id" ref="view_book_format_filter"/>
         <field name="help" type="html">
@@ -180,7 +178,6 @@
     <record model="ir.actions.act_window" id="book_publisher_action">
         <field name="name">Editoriales</field>
         <field name="res_model">book.publisher</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="search_view_id" ref="view_book_publisher_filter"/>
         <field name="help" type="html">
@@ -233,7 +230,6 @@
     <record model="ir.actions.act_window" id="filling_type_action">
         <field name="name">Tipos de estampe</field>
         <field name="res_model">filling.type</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="search_view_id" ref="view_filling_type_filter"/>
         <field name="help" type="html">
