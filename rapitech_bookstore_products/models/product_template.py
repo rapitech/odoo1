@@ -36,7 +36,6 @@ class BookAuthor(models.Model):
             tools.image_resize_images(vals)
         return super(BookAuthor, self).create(vals_list)
 
-    @api.multi
     def write(self, vals):
         tools.image_resize_images(vals)
         return super(BookAuthor, self).write(vals)
