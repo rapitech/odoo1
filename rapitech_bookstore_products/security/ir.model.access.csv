@@ -3,3 +3,4 @@ access_book_format,access.book.format,model_book_format,base.group_user,1,1,1,1
 access_book_author,access.book.author,model_book_author,base.group_user,1,1,1,1
 access_book_publisher,access.book.publisher,model_book_publisher,base.group_user,1,1,1,1
 access_filling_type,access.filling.type,model_filling_type,base.group_user,1,1,1,1
+access_book_wizard_upload_images,book.wizard.upload.images,model_book_wizard_upload_images,,1,1,1,1

@@ -87,6 +87,58 @@
                   sequence="10" action="book_author_action" 
                   />
 
+<!-- Book Language -->
+
+    <record id="view_book_language_filter" model="ir.ui.view">
+        <field name="name">book_language_filter</field>
+        <field name="model">book.language</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Idiomas">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+      <record id="book_language_form" model="ir.ui.view">
+        <field name="name">book.language.form</field>
+        <field name="model">book.language</field>
+        <field name="arch" type="xml">
+            <form string="Idioma">
+                <sheet>
+                     <group>
+                        <field name="name"/>
+                    </group>                        
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="book_language_tree" model="ir.ui.view">
+        <field name="name">book.language.tree</field>
+        <field name="model">book.language</field>
+        <field name="arch" type="xml">
+            <tree string="Idiomas">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="book_language_action">
+        <field name="name">Idiomas</field>
+        <field name="res_model">book.language</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_book_language_filter"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Crear el primer idioma
+            </p>
+        </field>
+    </record>
+
+        <menuitem id="book_language_menu" name="Idiomas"
+                  parent="book_menu"
+                  sequence="20" action="book_language_action" 
+                  />
+
 <!-- Book Format -->
 
     <record id="view_book_format_filter" model="ir.ui.view">
@@ -248,6 +300,12 @@
             <field name="model">product.template</field>
             <field name="inherit_id" ref="product.product_template_form_view"/>
             <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('oe_title')]/label" position="attributes">
+                    <attribute name="string">
+                        Titulo
+                    </attribute>
+                </xpath>
+
                 <xpath expr="//notebook" position="inside">
                     <page name="bookstore" string="Características Libro">
                         <group>

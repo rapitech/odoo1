@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="book_wizard_upload_images_form_view" model="ir.ui.view">
+            <field name="name">book.wizard.upload.images.form</field>
+            <field name="model">book.wizard.upload.images</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="folder_images" widget="many2many_binary"/>
+
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Importar" name="import_files" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="book_wizard_upload_images_wizard_action" model="ir.actions.act_window">
+            <field name="name">Importar Imagenes</field>
+            <field name="res_model">book.wizard.upload.images</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="book_wizard__upload_images_menu" name="Carga Imagenes"
+                  parent="book_menu"
+                  sequence="10" action="book_wizard_upload_images_wizard_action" 
+                  />
+    </data>
+</odoo>
