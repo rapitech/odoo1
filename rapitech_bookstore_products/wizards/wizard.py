@@ -1,14 +1,6 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.tools.misc import format_date, formatLang
+from odoo import fields, models
 
-from collections import defaultdict
-from itertools import groupby
-import json
-import os
-
-import base64
 class UploadImages(models.TransientModel):
     _name = 'book.wizard.upload.images'
 
@@ -20,4 +12,3 @@ class UploadImages(models.TransientModel):
                 product_id = self.env['product.template'].sudo().search([('isbn_13','=',img.name.split('.')[0])])
                 if product_id:
                     product_id.write({'image_1920':img.datas})
-                    
