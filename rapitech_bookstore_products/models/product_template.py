@@ -64,3 +64,4 @@ class ProductTemplate(models.Model):
     summary = fields.Text(string='Resumen (Sinopsis)')
     observation = fields.Text(string='Observación 1')
     supplier_id = fields.Many2one(comodel_name='res.partner', string='Proveedor')
+    metadatos_book = fields.Char(string='Metadatos')

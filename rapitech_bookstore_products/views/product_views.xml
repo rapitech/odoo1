@@ -320,6 +320,7 @@
                             <field name="weight_book"/>
                             <field name="long_dimension"/>
                             <field name="widht_dimension"/>
+                            <field name="metadatos_book"/>
                             <field name="summary"/>
                         </group>
                     </page>

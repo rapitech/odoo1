@@ -8,8 +8,10 @@
                 <form>
                     <group>
                         <group>
-                            <field name="folder_images" widget="many2many_binary"/>
+                            <field name="type_files" required="1"/>
 
+                            <field name="folder_images" widget="many2many_binary" attrs="{'invisible':[('type_files','!=','images')],'required':[('type_files','=','images')]}" />
+                            <field name="files_images"  attrs="{'invisible':[('type_files','=','images')],'required':[('type_files','!=','images')]}"/>
                         </group>
                     </group>
                     <footer>
