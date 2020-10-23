@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="dynamic_filter_demo_products1" model="website.snippet.filter">
+            <field name="action_server_id" ref="dynamic_snippet_products_most_sell_action"/>
+            <field name="field_names">display_name,description_sale,image_512,list_price</field>
+            <field name="limit" eval="8"/>
+            <field name="name">Productos más vendidos</field>
+            <field name="website_id" ref="website.default_website"/>
+        </record>
+
+
+
+
+    </data>
+
+</odoo>

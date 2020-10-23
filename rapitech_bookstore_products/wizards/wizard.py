@@ -28,7 +28,7 @@ class UploadImages(models.TransientModel):
                 worksheet = workbook.sheet_by_index(0)
                 for row in range(1,worksheet.nrows):
                     product = worksheet.cell(row,0).value
-                    image_path = worksheet.cell(row,22).value
+                    image_path = worksheet.cell(row,1).value
                     try:
 
                         binimg = base64.b64encode(requests.get(image_path).content)

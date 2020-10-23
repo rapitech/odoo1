@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="template_header_boxed" inherit_id="website.template_header_boxed">
+        <xpath expr="//div[hasclass('flex-grow-1')]" position="attributes">
+        	<attribute name="style">
+        		flex-grow: 0 !important
+        	</attribute>
+        </xpath>
+    	
+        <xpath expr="//div[hasclass('flex-grow-1')]" position="after">
+            <div class="flex-grow-1" style="text-align">
+                <t t-call="website_sale.website_sale_products_search_box"/>
+        	</div>
+        </xpath>
+    </template>
+
+    <record id="product_pricelist_item_form_view_inherit" model="ir.ui.view">
+        <field name="name">view.product.pricelist.item.inherit</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='applied_on']" position="after">
+               <field name="editorial" attrs="{
+                              'invisible':[('applied_on', '!=', '4_editorial')],
+                              'required':[('applied_on', '=', '4_editorial')]}"
+                            options="{'no_create':1}"/>
+               <field name="supplier_id" attrs="{
+                              'invisible':[('applied_on', '!=', '5_supplier')],
+                              'required':[('applied_on', '=', '5_supplier')]}"
+                            options="{'no_create':1}"/>               
+                <field name="author" attrs="{
+                              'invisible':[('applied_on', '!=', '6_author')],
+                              'required':[('applied_on', '=', '6_author')]}"
+                            options="{'no_create':1}"/>
+            </xpath>
+        </field>
+    </record>
+        
+
+</odoo>

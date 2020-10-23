@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="website_snippet_filter_form" model="ir.ui.view">
+        <field name="name">website.snippet.filter.form</field>
+        <field name="model">website.snippet.filter</field>
+        <field name="arch" type="xml">
+            <form string="Filtros">
+                <group>
+                    <field name="name"/>
+                    <field name="field_names" invisible="1"/>
+                    <field name="limit"/>
+                    <field name="filter_id"/>
+                    <field name="website_id"/>
+                    <field name="product_ids" attrs="{'invisible':[('filter_id','!=',False)]}"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="website_snippet_filter_tree" model="ir.ui.view">
+        <field name="name">website.snippet.filter.tree</field>
+        <field name="model">website.snippet.filter</field>
+        <field name="arch" type="xml">
+            <tree string="Filtros">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="website_snippet_filter_action">
+        <field name="name">Filtros</field>
+        <field name="res_model">website.snippet.filter</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Crear el primer filtro
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="website_snippet_filter_menu" name="Filtros Snippet"
+              parent="website.menu_website_configuration"
+              sequence="10" action="website_snippet_filter_action" 
+              />
+
+</odoo>
