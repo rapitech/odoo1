@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="template_product" inherit_id="website_sale.product">
+        <xpath expr="//section[@id='product_detail']" position="inside">
+            <br/>
+            <br/>
+            <br/>
+        	<div class="row">
+                <div class="col-md-6 col-xl-6">
+                	<div style="padding:3px;text-align: justify;">
+                		<h3>Reseña</h3>
+                	</div>
+                	<div style="padding:3px;text-align: justify;">
+                		<span t-esc="product.summary"/>
+                	</div>
+                </div>
+                <div class="col-md-3 col-xl-3">
+                	<table>
+                		<tr>
+                			<td style="padding: 5px;font-weight: bold;">ISBN</td>
+                			<td><span t-esc="product.isbn_13"/></td>
+                		</tr>
+                		<tr>
+                			<td style="padding: 5px;font-weight: bold;">Autor</td>
+                			<td><span t-esc="product.author.name"/></td>
+                		</tr>
+                		<tr>
+                			<td style="padding: 5px;font-weight: bold;">Sello Editorial</td>
+                			<td><span t-esc="product.editorial.name"/></td>
+                		</tr>
+                		<tr>
+                			<td style="padding: 5px;font-weight: bold;">Año</td>
+                			<td><span t-esc="product.year"/></td>
+                		</tr>
+                		<tr>
+                			<td style="padding: 5px;font-weight: bold;">Tipo de Empaste</td>
+                			<td><span t-esc="product.type_of_filling.name"/></td>
+                		</tr>
+                		
+                	</table>
+                </div>
+                <div class="col-md-3 col-xl-3">
+                	<table>
+                		<tr>
+                			<td style="padding: 5px;font-weight: bold;">Categoría</td>
+                			<td><span t-esc="product.categ_id.name"/></td>
+                		</tr>
+                		<!--
+                		<tr>
+                			<td style="padding: 5px;font-weight: bold;">N° edición</td>
+                			<td><span t-esc="product.edition_number"/></td>
+                		</tr>-->
+                		<tr>
+                			<td style="padding: 5px;font-weight: bold;">N° páginas</td>
+                			<td><span t-esc="product.number_of_pages"/></td>
+                		</tr>
+                		<tr>
+                			<td style="padding: 5px;font-weight: bold;">Idioma</td>
+                			<td><span t-esc="product.language_book"/></td>
+                		</tr>
+                	</table>
+                </div>
+        	</div>
+        </xpath>
+	</template>
+</odoo>

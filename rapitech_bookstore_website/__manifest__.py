@@ -3,7 +3,7 @@
 
 {
     'name': 'Website Bookstore',
-    'version': '1.2',
+    'version': '1.3',
     'category': 'Website Sale',
     'depends': ['website_sale','website','base','rapitech_bookstore_products','product'],
     'description': """
@@ -12,7 +12,7 @@
     'data': [
         #'security/ir.model.access.csv',
         'views/view.xml',
-        #'data/data.xml',
+        'views/template.xml',
     ],
     'installable': True,
     'auto_install': False,
